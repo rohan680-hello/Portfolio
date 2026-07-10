@@ -1,4 +1,4 @@
-// Set dynamic year in footer
+// Rohan Pal - Personal Developer Portfolio Script
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // Mobile Menu Toggle
