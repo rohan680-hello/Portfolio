@@ -40,6 +40,12 @@ Welcome to my personal developer portfolio! This is a modern, premium, and fully
    - Text emotion and sentiment analysis pipeline processing 5,000+ data samples with custom tokenization to reduce noise.
 6. **🛒 Amazon UI Clone (HTML5/CSS3/UI/UX)**
    - Fully responsive desktop UI clone simulating core Amazon component structures from scratch focusing on semantic markup.
+7. **🤖 Gemini Clone (React.js/Gemini API/Tailwind)**
+   - Responsive chat client mimicking the Google Gemini interface. Supports persistent multi-turn conversation logs in localStorage and Visual OCR requests utilizing Base64 file streaming.
+8. **📊 AI CRM Dashboard (React/MongoDB/Express/Node.js)**
+   - Full-stack CRM platform containing contact lists, analytical charts (Recharts), JWT login sessions, tasks/notes modules, and automated CRM scripts.
+9. **📋 Task Manager (React/Express/Node.js)**
+   - Full-stack task board tracking status metrics and overdue flags, supported by search inputs and backend JSON file persistence.
 
 ---
 
