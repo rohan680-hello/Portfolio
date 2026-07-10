@@ -1,0 +1,84 @@
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #8A2BE2;
+}
+
+/* Glassmorphism utilities */
+.glass {
+    background: rgba(17, 24, 39, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Gradient Text Animation */
+.animated-gradient-text {
+    background: linear-gradient(to right, #00E5FF, #8A2BE2, #00FA9A, #00E5FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 300% auto;
+    animation: text-shimmer 4s linear infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(to right, #00E5FF, #8A2BE2, #00FA9A);
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* Active Navigation Link */
+.active-link {
+    color: #00E5FF !important;
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+/* Active Contact Navbar Link Special Styling */
+.active-link-contact {
+    border-color: #00E5FF !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3) !important;
+    color: #00E5FF !important;
+}
+
+/* Scroll Reveal base style */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Active Filter button styling */
+.active-filter {
+    border-color: #00E5FF !important;
+    color: #00E5FF !important;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+    background: rgba(0, 229, 255, 0.05) !important;
+}

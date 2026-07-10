@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Pal | Software Engineer &amp; AI/ML Developer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration and Custom Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        base: '#0b0f19',
+                        electric: '#00E5FF',
+                        violet: '#8A2BE2',
+                        teal: '#00FA9A',
+                        indigoAccent: '#4B0082'
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                        'blob': 'blob 7s infinite',
+                        'text-shimmer': 'text-shimmer 4s ease infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        'text-shimmer': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-base text-gray-300 font-sans antialiased overflow-x-hidden selection:bg-violet/30 selection:text-white">
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="font-display font-bold text-2xl tracking-tight animated-gradient-text">
+                        Rohan Pal
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-sm font-medium hover:text-electric transition-colors duration-300">Home</a>
+                    <a href="#about" class="text-sm font-medium hover:text-violet transition-colors duration-300">About</a>
+                    <a href="#skills" class="text-sm font-medium hover:text-teal transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-electric transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="px-5 py-2 text-sm font-medium rounded-full border border-gray-700 hover:border-electric hover:shadow-[0_0_15px_rgba(0,229,255,0.3)] transition-all duration-300 text-white">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:text-electric hover:bg-gray-800 transition-colors">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:text-violet hover:bg-gray-800 transition-colors">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:text-teal hover:bg-gray-800 transition-colors">Skills</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:text-electric hover:bg-gray-800 transition-colors">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-electric hover:bg-gray-800 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background decorative blobs -->
+        <div class="absolute top-1/4 left-0 w-96 h-96 bg-violet/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
+        <div class="absolute top-1/3 right-0 w-96 h-96 bg-electric/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-teal/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column -->
+                <div class="order-2 lg:order-1 flex flex-col justify-center space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gray-800/50 border border-gray-700 w-fit">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-teal"></span>
+                        </span>
+                        <span class="text-xs font-medium text-gray-300 uppercase tracking-wider">Available for Opportunities</span>
+                    </div>
+                    
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white leading-tight">
+                        Hi, I'm <br/>
+                        <span class="text-white">Rohan Pal</span>
+                    </h1>
+                    
+                    <h2 class="text-2xl sm:text-3xl font-bold font-display animated-gradient-text leading-snug">
+                        Building Scalable Backends &amp; Intelligent AI/ML Systems.
+                    </h2>
+                    
+                    <p class="text-lg text-gray-400 max-w-xl leading-relaxed">
+                        B.Tech Computer Science graduate (June 2026) with strong fundamentals in Data Structures &amp; Algorithms, OOPs, and full-stack development. Proficient in Java, Python, and C++ with hands-on project experience in machine learning, NLP, and web development. Adept at analytical thinking, effective communication, and collaborative problem-solving. Seeking opportunities to contribute to scalable software solutions and drive impactful outcomes in a dynamic organization.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#projects" class="px-8 py-3.5 rounded-lg bg-gradient-to-r from-violet to-electric text-white font-semibold shadow-[0_0_20px_rgba(138,43,226,0.4)] hover:shadow-[0_0_30px_rgba(0,229,255,0.6)] hover:-translate-y-1 transition-all duration-300">
+                            View Projects
+                        </a>
+                        <a href="#contact" class="px-8 py-3.5 rounded-lg border-2 border-electric text-electric font-semibold shadow-[0_0_15px_rgba(0,229,255,0.2)] hover:bg-electric hover:text-base hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] hover:-translate-y-1 transition-all duration-300">
+                            Let's Connect
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column (Interactive Tech Graphic) -->
+                <div class="order-1 lg:order-2 flex justify-center items-center h-[400px] lg:h-[500px] relative">
+                    <!-- Interactive Mesh Sphere -->
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-violet via-base to-electric opacity-35 blur-2xl pointer-events-none"></div>
+                        <canvas id="particle-canvas" class="w-full h-full relative z-10 cursor-pointer"></canvas>
+                        <!-- Center solid element -->
+                        <div class="absolute w-24 h-24 rounded-full bg-[#0d1321]/90 border border-gray-800 shadow-2xl flex items-center justify-center pointer-events-none z-20">
+                            <i class="fa-solid fa-code text-3xl text-transparent bg-clip-text bg-gradient-to-br from-electric to-teal drop-shadow-[0_0_10px_rgba(0,229,255,0.6)]"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Highlights Grid -->
+    <section id="about" class="py-20 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+                <!-- Card 1 -->
+                <div class="glass p-6 rounded-2xl border-l-4 border-l-electric hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,229,255,0.15)] transition-all duration-300 group">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 rounded-full bg-electric/10 flex items-center justify-center group-hover:bg-electric/20 transition-colors">
+                            <i class="fa-solid fa-code text-2xl text-electric"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-white group-hover:text-electric transition-colors count-up" data-target="250" data-suffix="+">0+</h3>
+                            <p class="text-sm text-gray-400 mt-1">DSA Problems Solved</p>
+                            <p class="text-xs text-gray-500">LeetCode &amp; GFG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass p-6 rounded-2xl border-l-4 border-l-violet hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(138,43,226,0.15)] transition-all duration-300 group">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 rounded-full bg-violet/10 flex items-center justify-center group-hover:bg-violet/20 transition-colors">
+                            <i class="fa-solid fa-graduation-cap text-2xl text-violet"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-white group-hover:text-violet transition-colors count-up" data-target="7.31" data-decimals="2">0.00</h3>
+                            <p class="text-sm text-gray-400 mt-1">CGPA</p>
+                            <p class="text-xs text-gray-500">B.Tech Computer Science (Graduated June 2026)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass p-6 rounded-2xl border-l-4 border-l-teal hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,250,154,0.15)] transition-all duration-300 group">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center group-hover:bg-teal/20 transition-colors">
+                            <i class="fa-brands fa-aws text-2xl text-teal"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-white group-hover:text-teal transition-colors">Certified</h3>
+                            <p class="text-sm text-gray-400 mt-1">Cloud Practitioner</p>
+                            <p class="text-xs text-gray-500">Amazon Web Services</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-gray-400 uppercase mb-2">My Toolbox</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-white">Technical Arsenal</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-electric to-violet mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                <!-- Group 1: Languages (Blue) -->
+                <div class="glass p-8 rounded-2xl border border-blue-500/20 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-colors"></div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i class="fa-solid fa-terminal text-blue-400 text-xl"></i>
+                        <h4 class="text-xl font-bold text-white">Languages</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-300 text-sm font-medium border border-blue-500/20 hover:bg-blue-500/20 transition-colors">C++</span>
+                        <span class="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-300 text-sm font-medium border border-blue-500/20 hover:bg-blue-500/20 transition-colors">Java</span>
+                        <span class="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-300 text-sm font-medium border border-blue-500/20 hover:bg-blue-500/20 transition-colors">Python</span>
+                        <span class="px-4 py-2 rounded-lg bg-blue-500/10 text-blue-300 text-sm font-medium border border-blue-500/20 hover:bg-blue-500/20 transition-colors">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Group 2: Web & Backend (Purple) -->
+                <div class="glass p-8 rounded-2xl border border-violet/20 hover:border-violet/50 hover:shadow-[0_0_30px_rgba(138,43,226,0.15)] transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-violet/10 rounded-full blur-2xl group-hover:bg-violet/20 transition-colors"></div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i class="fa-solid fa-server text-violet text-xl"></i>
+                        <h4 class="text-xl font-bold text-white">Web &amp; Backend</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-lg bg-violet/10 text-purple-300 text-sm font-medium border border-violet/20 hover:bg-violet/20 transition-colors">Spring Boot</span>
+                        <span class="px-4 py-2 rounded-lg bg-violet/10 text-purple-300 text-sm font-medium border border-violet/20 hover:bg-violet/20 transition-colors">REST APIs</span>
+                        <span class="px-4 py-2 rounded-lg bg-violet/10 text-purple-300 text-sm font-medium border border-violet/20 hover:bg-violet/20 transition-colors">JDBC</span>
+                        <span class="px-4 py-2 rounded-lg bg-violet/10 text-purple-300 text-sm font-medium border border-violet/20 hover:bg-violet/20 transition-colors">React.js</span>
+                        <span class="px-4 py-2 rounded-lg bg-violet/10 text-purple-300 text-sm font-medium border border-violet/20 hover:bg-violet/20 transition-colors">HTML</span>
+                        <span class="px-4 py-2 rounded-lg bg-violet/10 text-purple-300 text-sm font-medium border border-violet/20 hover:bg-violet/20 transition-colors">CSS</span>
+                    </div>
+                </div>
+
+                <!-- Group 3: AI / ML (Teal) -->
+                <div class="glass p-8 rounded-2xl border border-teal/20 hover:border-teal/50 hover:shadow-[0_0_30px_rgba(0,250,154,0.15)] transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-teal/10 rounded-full blur-2xl group-hover:bg-teal/20 transition-colors"></div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i class="fa-solid fa-brain text-teal text-xl"></i>
+                        <h4 class="text-xl font-bold text-white">AI / Machine Learning</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-lg bg-teal/10 text-teal-300 text-sm font-medium border border-teal/20 hover:bg-teal/20 transition-colors">Reinforcement Learning</span>
+                        <span class="px-4 py-2 rounded-lg bg-teal/10 text-teal-300 text-sm font-medium border border-teal/20 hover:bg-teal/20 transition-colors">TensorFlow</span>
+                        <span class="px-4 py-2 rounded-lg bg-teal/10 text-teal-300 text-sm font-medium border border-teal/20 hover:bg-teal/20 transition-colors">NLP (NLTK, VADER)</span>
+                        <span class="px-4 py-2 rounded-lg bg-teal/10 text-teal-300 text-sm font-medium border border-teal/20 hover:bg-teal/20 transition-colors">CNN</span>
+                        <span class="px-4 py-2 rounded-lg bg-teal/10 text-teal-300 text-sm font-medium border border-teal/20 hover:bg-teal/20 transition-colors">OpenCV</span>
+                    </div>
+                </div>
+
+                <!-- Group 4: Databases & Tools (Indigo) -->
+                <div class="glass p-8 rounded-2xl border border-indigo-500/20 hover:border-indigo-500/50 hover:shadow-[0_0_30px_rgba(99,102,241,0.15)] transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-colors"></div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i class="fa-solid fa-database text-indigo-400 text-xl"></i>
+                        <h4 class="text-xl font-bold text-white">Databases &amp; Tools</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-sm font-medium border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">SQL</span>
+                        <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-sm font-medium border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">MySQL</span>
+                        <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-sm font-medium border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">MongoDB</span>
+                        <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-sm font-medium border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Git/GitHub</span>
+                        <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-sm font-medium border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">CI/CD (Actions)</span>
+                        <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-sm font-medium border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Docker</span>
+                        <span class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-sm font-medium border border-indigo-500/20 hover:bg-indigo-500/20 transition-colors">Postman</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-gray-900/30 relative border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-16 reveal">
+                <div>
+                    <h2 class="text-sm font-bold tracking-widest text-gray-400 uppercase mb-2">Portfolio</h2>
+                    <h3 class="text-4xl md:text-5xl font-display font-bold text-white">Featured Projects</h3>
+                </div>
+                <a href="https://github.com/rohan680-hello" target="_blank" class="hidden md:flex items-center space-x-2 text-electric hover:text-white transition-colors group">
+                    <span>View GitHub Profile</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Project Filter Buttons -->
+            <div class="flex flex-wrap gap-3 mb-10 justify-start items-center reveal">
+                <button data-filter="all" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold border border-gray-700 bg-gray-900/50 text-white hover:border-electric transition-all duration-300 active-filter">
+                    All Projects
+                </button>
+                <button data-filter="backend" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold border border-gray-700 bg-gray-900/50 text-gray-400 hover:border-violet hover:text-white transition-all duration-300">
+                    Java &amp; Backend
+                </button>
+                <button data-filter="ai-ml" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold border border-gray-700 bg-gray-900/50 text-gray-400 hover:border-teal hover:text-white transition-all duration-300">
+                    AI &amp; ML
+                </button>
+                <button data-filter="frontend" class="filter-btn px-5 py-2.5 rounded-full text-sm font-semibold border border-gray-700 bg-gray-900/50 text-gray-400 hover:border-electric hover:text-white transition-all duration-300">
+                    Frontend / UI
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+                
+                <!-- Project 1: Journal App -->
+                <div class="project-card transform transition-all duration-300 bg-gray-900/80 border border-gray-800 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(138,43,226,0.15)] flex flex-col h-full" data-category="backend">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-violet/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex justify-between items-start mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-violet/10 flex items-center justify-center border border-violet/20 text-violet">
+                            <i class="fa-solid fa-book-open text-xl"></i>
+                        </div>
+                        <a href="https://github.com/rohan680-hello" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 relative z-10">Journal App</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow relative z-10">
+                        Secure REST API backend featuring Basic Auth isolation and Swagger documentation. Integrated with GitHub Actions CI/CD to ensure automated zero-broken builds on deployment.
+                    </p>
+                    <div class="flex flex-wrap gap-2 relative z-10">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Java</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Spring Boot</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-green-500/10 text-green-400 border border-green-500/20">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: EMPsystem -->
+                <div class="project-card transform transition-all duration-300 bg-gray-900/80 border border-gray-800 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] flex flex-col h-full" data-category="backend">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex justify-between items-start mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center border border-blue-500/20 text-blue-400">
+                            <i class="fa-solid fa-users-gear text-xl"></i>
+                        </div>
+                        <a href="https://github.com/rohan680-hello" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 relative z-10">EMPsystem</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow relative z-10">
+                        Comprehensive desktop CRUD application for employee management. Executes admin workflows applying strict OOP encapsulation across 10+ core classes to eliminate code duplication.
+                    </p>
+                    <div class="flex flex-wrap gap-2 relative z-10">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">Java</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/20">Swing</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-400/10 text-blue-300 border border-blue-400/20">MySQL</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: CPU Scheduler -->
+                <div class="project-card transform transition-all duration-300 bg-gray-900/80 border border-gray-800 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 hover:border-teal/50 hover:shadow-[0_0_30px_rgba(0,250,154,0.15)] flex flex-col h-full" data-category="ai-ml">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex justify-between items-start mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-teal/10 flex items-center justify-center border border-teal/20 text-teal">
+                            <i class="fa-solid fa-microchip text-xl"></i>
+                        </div>
+                        <a href="https://github.com/rohan680-hello" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 relative z-10">CPU Scheduler (AI)</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow relative z-10">
+                        Dynamic system using predictive modeling &amp; Reinforcement Learning to adapt strategies in real-time. Achieved 15% higher throughput benchmarking FCFS/SJF/RR. Features live HTML/CSS dashboard.
+                    </p>
+                    <div class="flex flex-wrap gap-2 relative z-10">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Python</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-teal/10 text-teal border border-teal/20">RL / AI</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-red-500/10 text-red-400 border border-red-500/20">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Digit Recognition -->
+                <div class="project-card transform transition-all duration-300 bg-gray-900/80 border border-gray-800 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 hover:border-indigo-500/50 hover:shadow-[0_0_30px_rgba(99,102,241,0.15)] flex flex-col h-full" data-category="ai-ml">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex justify-between items-start mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 text-indigo-400">
+                            <i class="fa-solid fa-eye text-xl"></i>
+                        </div>
+                        <a href="https://github.com/rohan680-hello" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 relative z-10">Handwritten Digit Recognition</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow relative z-10">
+                        Built a 3-layer Convolutional Neural Network trained on MNIST dataset achieving 92% precision. Developed a robust OpenCV pipeline to process and predict real-world handwritten images.
+                    </p>
+                    <div class="flex flex-wrap gap-2 relative z-10">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Python</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/20">TensorFlow</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">OpenCV</span>
+                    </div>
+                </div>
+
+                <!-- Project 5: SentiAnalysis -->
+                <div class="project-card transform transition-all duration-300 bg-gray-900/80 border border-gray-800 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 hover:border-pink-500/50 hover:shadow-[0_0_30px_rgba(236,72,153,0.15)] flex flex-col h-full" data-category="ai-ml">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex justify-between items-start mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center border border-pink-500/20 text-pink-400">
+                            <i class="fa-solid fa-comments text-xl"></i>
+                        </div>
+                        <a href="https://github.com/rohan680-hello" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 relative z-10">SentiAnalysis</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow relative z-10">
+                        Text emotion and sentiment analysis pipeline processing 5,000+ data samples. Implemented custom tokenization to reduce noise by 30% and generated visual plots using Matplotlib.
+                    </p>
+                    <div class="flex flex-wrap gap-2 relative z-10">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Python</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-400 border border-pink-500/20">NLP</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">Matplotlib</span>
+                    </div>
+                </div>
+
+                <!-- Project 6: WebDevProject -->
+                <div class="project-card transform transition-all duration-300 bg-gray-900/80 border border-gray-800 rounded-xl p-6 relative overflow-hidden group hover:-translate-y-2 hover:border-electric/50 hover:shadow-[0_0_30px_rgba(0,229,255,0.15)] flex flex-col h-full" data-category="frontend">
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-electric/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="flex justify-between items-start mb-4 relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-electric/10 flex items-center justify-center border border-electric/20 text-electric">
+                            <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        </div>
+                        <a href="https://github.com/rohan680-hello" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-github text-2xl"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3 relative z-10">WebDevProject (Amazon Clone)</h4>
+                    <p class="text-gray-400 text-sm mb-6 flex-grow relative z-10">
+                        Fully responsive desktop UI clone simulating core Amazon component structures. Built entirely from scratch focusing on semantic markup and advanced CSS flex/grid layouts.
+                    </p>
+                    <div class="flex flex-wrap gap-2 relative z-10">
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-400 border border-orange-500/20">HTML5</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">CSS3</span>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-500/10 text-gray-300 border border-gray-500/20">UI/UX</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="https://github.com/rohan680-hello" target="_blank" class="inline-flex items-center space-x-2 text-electric font-medium">
+                    <span>View More on GitHub</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <!-- Decorative Glow -->
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-electric/10 rounded-full mix-blend-screen filter blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-gray-400 uppercase mb-2">Get In Touch</h2>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-white">Let's Connect</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto reveal">
+                <!-- Left: Contact Form -->
+                <div class="glass p-8 sm:p-10 rounded-2xl border border-gray-800 shadow-2xl relative overflow-hidden">
+                    <form onsubmit="handleContactFormSubmit(event)" id="contact-form" action="https://formsubmit.co/palrohan068@gmail.com" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" class="w-full bg-gray-900/50 border border-gray-700 text-white rounded-lg px-4 py-3.5 focus:outline-none focus:border-electric focus:ring-1 focus:ring-electric transition-all" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" class="w-full bg-gray-900/50 border border-gray-700 text-white rounded-lg px-4 py-3.5 focus:outline-none focus:border-violet focus:ring-1 focus:ring-violet transition-all" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Hello Rohan, I have an opportunity..." class="w-full bg-gray-900/50 border border-gray-700 text-white rounded-lg px-4 py-3.5 focus:outline-none focus:border-teal focus:ring-1 focus:ring-teal transition-all resize-none" required></textarea>
+                        </div>
+                        <button type="submit" id="contact-submit-btn" class="w-full py-4 rounded-lg bg-gradient-to-r from-electric via-violet to-electric bg-[length:200%_auto] text-white font-bold text-lg hover:animate-[text-shimmer_2s_linear_infinite] shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(138,43,226,0.6)] transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+
+                    <!-- Success State Overlay -->
+                    <div id="contact-success-state" class="absolute inset-0 bg-base/95 z-30 flex flex-col items-center justify-center p-8 text-center translate-y-full opacity-0 transition-all duration-500 pointer-events-none">
+                        <div class="w-20 h-20 rounded-full bg-teal/10 border border-teal flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(0,250,154,0.2)]">
+                            <i class="fa-solid fa-check text-4xl text-teal animate-bounce"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold font-display text-white mb-3">Message Sent!</h4>
+                        <p class="text-gray-400 text-sm max-w-sm mb-8 leading-relaxed">
+                            Thank you for reaching out. Your message has been forwarded successfully. I will get back to you as soon as possible!
+                        </p>
+                        <button onclick="resetContactForm()" class="px-6 py-2.5 rounded-lg border border-gray-700 hover:border-electric hover:shadow-[0_0_15px_rgba(0,229,255,0.3)] transition-all duration-300 text-sm font-semibold text-white">
+                            Send Another Message
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Info -->
+                <div class="flex flex-col space-y-8">
+                    <div class="text-left">
+                        <h4 class="text-2xl font-bold text-white mb-6">Reach out directly</h4>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            Currently open to new opportunities, internships, and collaborations. Whether you have a question or just want to say hi, my inbox is always open!
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-5 group">
+                            <div class="w-14 h-14 rounded-full bg-gray-800 flex items-center justify-center border border-gray-700 group-hover:border-electric group-hover:bg-electric/10 transition-all duration-300">
+                                <i class="fa-solid fa-location-dot text-xl text-gray-400 group-hover:text-electric transition-colors"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 font-medium">Location</p>
+                                <p class="text-lg text-white font-semibold group-hover:text-electric transition-colors">Dehradun, Uttarakhand</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-5 group">
+                            <div class="w-14 h-14 rounded-full bg-gray-800 flex items-center justify-center border border-gray-700 group-hover:border-violet group-hover:bg-violet/10 transition-all duration-300">
+                                <a href="mailto:palrohan068@gmail.com">
+                                    <i class="fa-solid fa-envelope text-xl text-gray-400 group-hover:text-violet transition-colors"></i>
+                                </a>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 font-medium">Email</p>
+                                <a href="mailto:palrohan068@gmail.com" class="text-lg text-white font-semibold group-hover:text-violet transition-colors">palrohan068@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-[#070a11] py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="flex flex-col items-center md:items-start">
+                <span class="font-display font-bold text-xl animated-gradient-text mb-1">Rohan Pal</span>
+                <p class="text-gray-500 text-sm">© <span id="year"></span> All rights reserved.</p>
+            </div>
+            
+            <div class="flex space-x-6">
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/rohan-pal-396b63267" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-[#0077b5] hover:text-white hover:shadow-[0_0_15px_#0077b5] transition-all duration-300 hover:-translate-y-1">
+                    <i class="fa-brands fa-linkedin-in text-lg"></i>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/rohan680-hello" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-white hover:text-black hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full glass border border-gray-700 text-electric hover:border-electric hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] flex items-center justify-center translate-y-12 opacity-0 pointer-events-none transition-all duration-300">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom Scripts -->
+    <script src="script.js" defer></script>
+</body>
+</html>
