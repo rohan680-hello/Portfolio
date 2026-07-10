@@ -411,3 +411,14 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 revealElements.forEach(el => revealObserver.observe(el));
+
+// Bind Contact Form Event Listeners (fixing module scoping)
+const contactFormEl = document.getElementById('contact-form');
+if (contactFormEl) {
+    contactFormEl.addEventListener('submit', handleContactFormSubmit);
+}
+
+const contactResetBtnEl = document.getElementById('contact-reset-btn');
+if (contactResetBtnEl) {
+    contactResetBtnEl.addEventListener('click', resetContactForm);
+}
