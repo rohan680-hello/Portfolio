@@ -16,91 +16,6 @@ menu.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Asynchronous Contact Form Submission via FormSubmit.co AJAX API
-async function handleContactFormSubmit(event) {
-    event.preventDefault();
-    
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('contact-submit-btn');
-    const successOverlay = document.getElementById('contact-success-state');
-    
-    const nameVal = document.getElementById('name').value;
-    const emailVal = document.getElementById('email').value;
-    const messageVal = document.getElementById('message').value;
-    
-    // Show loading spinner status
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin mr-2"></i> Sending Message...`;
-    
-    // Disable all fields during submission
-    const inputs = form.querySelectorAll('input, textarea');
-    inputs.forEach(input => input.disabled = true);
-    
-    // Clear prior error display
-    const existingAlert = form.querySelector('.error-alert');
-    if (existingAlert) existingAlert.remove();
-    
-    try {
-        const response = await fetch("https://formsubmit.co/ajax/palrohan068@gmail.com", {
-            method: "POST",
-            headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                name: nameVal,
-                email: emailVal,
-                message: messageVal,
-                _subject: `New Portfolio Message from ${nameVal}`,
-                _captcha: "false"
-            })
-        });
-        
-        const result = await response.json();
-        
-        if (response.ok && (result.success === "true" || result.success === true)) {
-            // Trigger success overlay screen entry
-            successOverlay.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
-            successOverlay.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-        } else {
-            throw new Error(result.message || "Unable to send your message.");
-        }
-    } catch (error) {
-        console.error("Submission failed:", error);
-        
-        // Construct error alert feedback
-        const alertDiv = document.createElement('div');
-        alertDiv.className = "error-alert p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm mb-4 flex items-center space-x-2";
-        alertDiv.innerHTML = `<i class="fa-solid fa-circle-exclamation text-lg"></i> <span>Failed to send. Please try again or email directly at <a href="mailto:palrohan068@gmail.com" class="underline font-semibold text-electric">palrohan068@gmail.com</a></span>`;
-        form.insertBefore(alertDiv, form.firstChild);
-        
-        // Re-enable form interactions
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = "Send Message";
-        inputs.forEach(input => input.disabled = false);
-    }
-}
-
-// Reset the form fields and remove success layer
-function resetContactForm() {
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('contact-submit-btn');
-    const successOverlay = document.getElementById('contact-success-state');
-    
-    form.reset();
-    
-    const inputs = form.querySelectorAll('input, textarea');
-    inputs.forEach(input => input.disabled = false);
-    
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = "Send Message";
-    
-    successOverlay.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
-    successOverlay.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-    
-    const existingAlert = form.querySelector('.error-alert');
-    if (existingAlert) existingAlert.remove();
-}
 
 /* 1. Interactive 3D Particle Mesh Sphere (Canvas) */
 const canvas = document.getElementById('particle-canvas');
@@ -412,13 +327,4 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// Bind Contact Form Event Listeners (fixing module scoping)
-const contactFormEl = document.getElementById('contact-form');
-if (contactFormEl) {
-    contactFormEl.addEventListener('submit', handleContactFormSubmit);
-}
 
-const contactResetBtnEl = document.getElementById('contact-reset-btn');
-if (contactResetBtnEl) {
-    contactResetBtnEl.addEventListener('click', resetContactForm);
-}
